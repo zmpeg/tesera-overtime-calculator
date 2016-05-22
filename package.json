@@ -1,0 +1,19 @@
+{
+  "name": "tesera-overtime-calculator",
+  "version": "0.0.1",
+  "description": "Plugs into tesera harvest account and prints your overtime accumulated",
+  "main": "calculate.js",
+  "dependencies": {
+    "harvest": "^0.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zmpeg/tesera-overtime-calculator.git"
+  },
+  "author": "Matt Zandstra <zandstra.matt@gmail.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/zmpeg/tesera-overtime-calculator/issues"
+  },
+  "homepage": "https://github.com/zmpeg/tesera-overtime-calculator#readme"
+}

@@ -2,12 +2,18 @@
 
 ## Installation
 
-    npm install harvest
+    git clone git@github.com:zmpeg/tesera-overtime-calculator.git
+    cd tesera-overtime-calculator
+    nvm use
+    npm install
 
 ## Config
 
-1. Update config section at top of calculate.js
-2. Update the user_id value in the timeEntriesByUser section. you can find your user id on the webapp in the URL when you edit your user.
+Copy `sample.env` to `.env`. Set the variables in `.env`. Dates are formatted YYYYMMDD. You can find your userid in the address bar when you login to harvest normally.
+
+    cp sample.env .env
+    "${EDITOR:-vi}" .env
+
 
 ## Run
 
