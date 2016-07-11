@@ -4,7 +4,8 @@
   "description": "Plugs into tesera harvest account and prints your overtime accumulated",
   "main": "calculate.js",
   "dependencies": {
-    "harvest": "^0.1.4"
+    "harvest": "^0.1.4",
+    "moment": "^2.14.1"
   },
   "repository": {
     "type": "git",

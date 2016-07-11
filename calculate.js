@@ -1,5 +1,6 @@
 var env = require('node-env-file');
-var Harvest = require('harvest')
+var Harvest = require('harvest');
+var moment = require('moment');
 env(__dirname+'/.env');
 
 if(process.env.SUBDOMAIN && 
@@ -18,8 +19,14 @@ if(process.env.SUBDOMAIN &&
   var harvest = new Harvest(config);
   var Reports = harvest.Reports;
 
+  start_date = moment(process.env.STARTDATE, "YYYYMMDD");
+  now = moment()
+  years_at_company = moment.duration(now.diff(start_date));
+
   hours_overtime = 0
   hours_til = 0
+  hours_vac = 0
+  hours_vac_accrued = process.env.VACATION_DAYS_PER_YEAR * years_at_company.asYears() * (process.env.HOURS_PER_WEEK/5);
 
 
   Reports.timeEntriesByUser({
@@ -36,11 +43,17 @@ if(process.env.SUBDOMAIN &&
             hours_overtime += val.day_entry.hours;
           if (val.day_entry.task_id == 1309778)
             hours_til += val.day_entry.hours;
+          if (val.day_entry.task_id == 1309777)
+            hours_vac += val.day_entry.hours;
         });
 
-        console.log("Overtime: "+hours_overtime);
-        console.log("TIL: "+hours_til);
-        console.log("You are at: "+(hours_overtime-hours_til));
+        console.log("Overtime Accrued:    "+hours_overtime);
+        console.log("Overtime Used (TIL): "+hours_til);
+        console.log("Vacation Used:       "+hours_vac);
+        console.log("Vacation Accrued:    "+hours_vac_accrued);
+        console.log("");
+        console.log("Overtime Balance:    "+(hours_overtime-hours_til)+" hours");
+        console.log("Vacation Balance:    "+(hours_vac_accrued-hours_vac)+" hours");
       }
   });
 
