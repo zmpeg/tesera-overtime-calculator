@@ -18,6 +18,10 @@ Copy `sample.env` to `.env`. Set the variables in `.env`. Dates are formatted YY
 ## Run
 
     $ node calculate.js
-    Overtime: 44.5
-    TIL: 47
-    You are at: -2.5
+    Overtime Accrued:    47.5
+    Overtime Used (TIL): 42.5
+    Vacation Used:       40
+    Vacation Accrued:    80.9
+
+    Overtime Balance:    5 hours
+    Vacation Balance:    40.9 hours
