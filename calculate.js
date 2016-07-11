@@ -47,13 +47,19 @@ if(process.env.SUBDOMAIN &&
             hours_vac += val.day_entry.hours;
         });
 
+        overtime_balance = hours_overtime-hours_til
+        overtime_balance = Math.round(overtime_balance*10)/10;
+        vacation_balance = hours_vac_accrued-hours_vac
+        vacation_balance = Math.round(vacation_balance*10)/10;
+        friendly_vacation_accrued = Math.round(hours_vac_accrued*10)/10;
+
         console.log("Overtime Accrued:    "+hours_overtime);
         console.log("Overtime Used (TIL): "+hours_til);
         console.log("Vacation Used:       "+hours_vac);
-        console.log("Vacation Accrued:    "+hours_vac_accrued);
+        console.log("Vacation Accrued:    "+friendly_vacation_accrued);
         console.log("");
-        console.log("Overtime Balance:    "+(hours_overtime-hours_til)+" hours");
-        console.log("Vacation Balance:    "+(hours_vac_accrued-hours_vac)+" hours");
+        console.log("Overtime Balance:    "+overtime_balance+" hours");
+        console.log("Vacation Balance:    "+vacation_balance+" hours");
       }
   });
 
